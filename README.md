@@ -23,7 +23,9 @@ npm init
 npm install express
 ```
 - create index.js and input this code
-
+```
+touch index.js
+```
 ```
 'use strict'
 var express = require('express')
