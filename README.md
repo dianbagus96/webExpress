@@ -124,7 +124,7 @@ app.use(bodyParser.json);
 routes(app);
 
 app.listen(port, () => {
-    console.log('App listening on port 3000!');
+    console.log('App listening on port ' + port + '!');
 });
 
 ```
