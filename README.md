@@ -18,7 +18,52 @@ These instructions will get you a copy of the project up and running on your loc
 ```
 npm init
 ```
-- install ExpressJS
+- Install ExpressJS
 ```
 npm install express
+```
+- create index.js and input this code
+
+```
+'use strict'
+var express = require('express')
+,app = express()
+,port = process.env.port || 3000
+,bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json);
+
+app.listen(3000, () => {
+console.log('App listening on port 3000!');
+});
+```
+
+- Install nodemon
+```
+npm install nodemon
+```
+
+- Open pakage.json and add this code line inside the "scripts tag"
+```
+"start": "nodemon index.js"
+```
+and it will must be like this
+```
+{
+  "name": "mywebsite",
+  "version": "1.0.0",
+  "description": "expressWeb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "dianagus96",
+  "license": "ISC"
+}
+```
+- make folder controllers, models, views
+```
+mkdir web/controllers web/models web/views
 ```
