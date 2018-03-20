@@ -63,7 +63,66 @@ and it will must be like this
   "license": "ISC"
 }
 ```
-- make folder controllers, models, views
+- make folder controllers, models, views, routes
 ```
-mkdir web/controllers web/models web/views
+mkdir -p web/controllers web/models web/views web/routes
+```
+- make file webRoutes.js inside web/routes
+```
+touch web/routes/webRoutes.js
+```
+- open web/routes/webRoutes.js and insert this code
+```
+'use strict';
+module.exports = function(app){
+    var web  = require('../controllers/webController');
+    
+    app.route('/')
+        .get(web.login)
+        .post(web.login);
+        
+};
+```
+- make file webController.js inside web/controllers
+```
+touch web/controllers/webController.js
+```
+- open web/controllers/webController.js and insert this code
+```
+'use strict'
+exports.login = function(req, res){
+    if(req.method == 'GET'){
+        res.render("index");
+    }else{
+        res.redirect("/home");
+    }
+}
+
+exports.home = function(req, res){
+    res.status(200).render('home');
+}
+```
+- open index.js and we link the routes to the project
+```
+routes = require('./web/routes/webRoutes')
+routes(app);
+```
+and it will must be this
+```
+'use strict'
+var express = require('express')
+    ,app = express()
+    ,port = process.env.port || 3000
+    ,bodyParser = require('body-parser')
+    ,routes = require('./web/routes/webRoutes');
+
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json);
+
+routes(app);
+
+app.listen(3000, () => {
+    console.log('App listening on port 3000!');
+});
+
 ```
