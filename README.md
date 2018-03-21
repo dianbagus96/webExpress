@@ -22,9 +22,9 @@ npm init
 ```
 npm install express
 ```
-- create index.js and input this code
+- create server.js and input this code
 ```
-touch index.js
+touch server.js
 ```
 ```
 'use strict'
@@ -34,7 +34,7 @@ var express = require('express')
 ,bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({extended : true}));
-app.use(bodyParser.json);
+app.use(bodyParser.json());
 
 app.listen(port, () => {
 console.log('App listening on port '+port+'!');
@@ -48,7 +48,7 @@ npm install nodemon
 
 - Open pakage.json and add this code line inside the "scripts tag"
 ```
-"start": "nodemon index.js"
+"start": "nodemon server.js"
 ```
 and it will must be like this
 ```
@@ -56,12 +56,12 @@ and it will must be like this
   "name": "mywebsite",
   "version": "1.0.0",
   "description": "expressWeb",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon server.js"
   },
-  "author": "dianagus96",
+  "author": "dianbagus96",
   "license": "ISC"
 }
 ```
@@ -104,7 +104,7 @@ exports.home = function(req, res){
     res.status(200).render('home');
 }
 ```
-- open index.js and we link the routes to the project
+- open server.js and we link the routes to the project
 ```
 routes = require('./web/routes/webRoutes')
 routes(app);
@@ -119,7 +119,7 @@ var express = require('express')
     ,routes = require('./web/routes/webRoutes');
 
 app.use(bodyParser.urlencoded({extended : true}));
-app.use(bodyParser.json);
+app.use(bodyParser.json());
 
 routes(app);
 
