@@ -36,8 +36,8 @@ var express = require('express')
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json);
 
-app.listen(3000, () => {
-console.log('App listening on port 3000!');
+app.listen(port, () => {
+console.log('App listening on port '+port+'!');
 });
 ```
 
