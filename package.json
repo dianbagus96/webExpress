@@ -1,0 +1,25 @@
+{
+  "name": "webexpress",
+  "version": "1.0.0",
+  "description": "Skeleton for ExpressJS build",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "dianbagus96",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dianbagus96/webExpress.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dianbagus96/webExpress/issues"
+  },
+  "homepage": "https://github.com/dianbagus96/webExpress#readme"
+}
